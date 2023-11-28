@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TwoSushi</string>
+    <string name="person2Current">Person2Current</string>
+    <string name="person1Current">Person1Current</string>
+    <string name="btReset">Reset</string>
+</resources>
