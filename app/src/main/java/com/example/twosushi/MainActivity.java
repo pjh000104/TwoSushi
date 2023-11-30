@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvPerson2TotalAmountl;
     private Button btAdd;
     private Button btReset;
-//    private ArrayList<Double> Person1items = new ArrayList<Double>();
-//    private ArrayList<Double> Person2Items = new ArrayList<Double>();
     private Double Person1Total = 0.0;
     private Double Person2Total = 0.0;
     @Override
@@ -45,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
         btAdd = findViewById(R.id.btAdd);
         btReset = findViewById(R.id.btReset);
 
+
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
+            //tells user to enter numbers in blank space
             public void onClick(View view) {
                 if(etTotalPrice1.getText().toString().matches("")) {
                     Toast myToast = Toast.makeText(MainActivity.this, "Enter Item1! ", Toast.LENGTH_SHORT);
@@ -59,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     myToast.show();
                     return;
                 }
-
-//                Person1items.add(Double.parseDouble(tvPerson1CurrentAmount.getText().toString()));
-//                Person2Items.add(Double.parseDouble(tvPerson2CurrentAmount.getText().toString()));
+            //Adds current amount to total amount and resets all the values except the total amount
                 Person1Total += Double.parseDouble(tvPerson1CurrentAmount.getText().toString());
                 Person2Total += Double.parseDouble(tvPerson2CurrentAmount.getText().toString());
                 tvPerson1TotalAmount.setText(Person1Total.toString());
@@ -76,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //resets everything
         btReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Calculates the current amount for each person
     public void calculatePrice() {
         if(etTotalPrice1.getText().toString().matches("")) {
             tvPerson1CurrentAmount.setText(" ");
